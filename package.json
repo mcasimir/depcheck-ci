@@ -19,19 +19,6 @@
   "bin": {
     "depcheck-ci": "./lib/cli.js"
   },
-  "nyc": {
-    "include": [
-      "lib/**/*.js"
-    ],
-    "require": [
-      "babel-register"
-    ],
-    "sourceMap": false,
-    "instrument": false
-  },
-  "depcheck": {
-    "ignore": []
-  },
   "dependencies": {
     "chalk": "1.1.3",
     "depcheck": "0.6.4",
