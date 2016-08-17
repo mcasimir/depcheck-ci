@@ -38,19 +38,24 @@ if (argv._.length > 1) {
   process.exit(1);
 }
 
-let options = {};
+let options = null;
+let configPath = resolve(process.cwd(), argv.config);
+let targetPath = resolve(process.cwd(), argv.target);
+let packageJsonPath = resolve(targetPath, 'package.json');
+let packageJson = require(packageJsonPath);
 
-if (argv.config) {
+try {
+  options = require(configPath);
+} catch (e) {
   try {
-    options = require(resolve(process.cwd(), argv.config));
+    options = JSON.parse(readFileSync(configPath));
   } catch (e) {
-    try {
-      options = JSON.parse(readFileSync(resolve(process.cwd(), argv.config)));
-    } catch (e) {
-      logger.warn(e.message);
-      logger.warn('Using default configuration');
-    }
+    options = packageJson.depcheck;
   }
+}
+
+if (!options) {
+  logger.warn('No configuration provided. Using default configuration.');
 }
 
 let depcheck = new Depcheck(argv.target, options);
