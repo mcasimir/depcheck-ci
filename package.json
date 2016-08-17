@@ -12,11 +12,8 @@
     "clean": "rm -Rf ./lib",
     "build": "babel src -d lib",
     "release": "release-flow",
-    "test": "npm run test:unit && npm run test:integration",
-    "test:unit": "BABEL_ENV=test nyc -r lcov -r text mocha --compilers js:babel-register --require babel-polyfill 'test/unit/**/*.spec.js'",
-    "test:integration": "BABEL_ENV=test nyc -r lcov -r text mocha --compilers js:babel-register --require babel-polyfill 'test/integration/**/*.spec.js'",
     "test:lint": "eslint . --quiet",
-    "test:ci": "npm run test:lint && npm test",
+    "test:ci": "npm run test:lint && npm run depcheck",
     "depcheck": "npm run build && node ./lib/cli.js"
   },
   "bin": {
@@ -31,6 +28,9 @@
     ],
     "sourceMap": false,
     "instrument": false
+  },
+  "depcheck": {
+    "ignore": []
   },
   "dependencies": {
     "chalk": "1.1.3",
@@ -54,10 +54,6 @@
     "eslint-config-google": "0.6.0",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-mocha": "4.2.0",
-    "mocha": "2.5.3",
-    "nodemon": "1.10.0",
-    "npm-run-all": "2.3.0",
-    "nyc": "7.1.0",
     "release-flow": "1.2.1"
   },
   "repository": {

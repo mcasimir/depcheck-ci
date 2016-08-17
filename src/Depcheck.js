@@ -52,7 +52,6 @@ export default class Depcheck {
 
   async checkUnusedDependencies() {
     let {dependencies, devDependencies} = await depcheck(this.targetPath, {
-      ignoreBinPackage: true,
       ignoreMatches: this.options.ignore,
       ignoreDirs: this.options.ignoreDirs
     });
