@@ -6,7 +6,7 @@
   },
   "description": "Depcheck util that plays nice with ci",
   "author": "mcasimir",
-  "main": "index.js",
+  "main": "src/Depcheck.js",
   "license": "MIT",
   "scripts": {
     "clean": "rm -Rf ./lib",
@@ -34,11 +34,11 @@
   },
   "dependencies": {
     "chalk": "1.1.3",
+    "depcheck": "0.6.4",
     "yargs": "5.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.10.1",
-    "babel-core": "6.11.4",
     "babel-eslint": "6.1.2",
     "babel-plugin-istanbul": "1.0.3",
     "babel-plugin-syntax-async-functions": "6.8.0",
@@ -58,8 +58,7 @@
     "nodemon": "1.10.0",
     "npm-run-all": "2.3.0",
     "nyc": "7.1.0",
-    "release-flow": "1.2.1",
-    "sinon": "1.17.5"
+    "release-flow": "1.2.1"
   },
   "repository": {
     "type": "git",
