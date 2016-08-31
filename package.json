@@ -1,6 +1,6 @@
 {
   "name": "depcheck-ci",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "node": ">= 6.2.1"
   },
