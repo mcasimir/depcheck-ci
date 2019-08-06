@@ -1,55 +1,120 @@
 {
   "extends": [
     "eslint:recommended",
+    "plugin:node/recommended",
     "google"
   ],
   "plugins": [
-    "babel",
-    "mocha"
+    "mocha",
+    "filenames",
+    "node",
+    "no-async-without-await"
   ],
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "modules": true,
-      "forOf": true,
-      "blockBindings": true,
-      "arrowFunctions": true,
-      "classes": true,
-      "defaultParams": true,
-      "destructuring": true,
-      "generators": true,
-      "restParams": true,
-      "spread": true,
-      "superInFunctions": true,
-      "templateStrings": true,
-      "experimentalObjectRestSpread": true
-    }
-  },
   "env": {
-    "es6": true,
-    "browser": true,
     "mocha": true,
+    "es6": true,
     "node": true
   },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "globals": {
+    "expect": true,
+    "beforeAll": "readonly",
+    "afterAll": "readonly",
+    "jest": "readonly"
+  },
   "rules": {
-    "strict": [2, "never"],
+    "object-curly-spacing": ["error", "always"],
+    "filenames/match-regex": [2, "^[a-z-.]+$", true],
+    "strict": [
+      "error",
+      "never"
+    ],
     "new-cap": 0,
-    "no-console": [1, { "allow": ["info", "time", "warn", "error", "timeEnd"] }],
-    "quotes": [2, "single"],
-    "no-unused-vars": 2,
+    "no-console": [
+      1,
+      {
+        "allow": [
+          "info",
+          "time",
+          "warn",
+          "error",
+          "timeEnd"
+        ]
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "after-used"
+      }
+    ],
     "eqeqeq": 2,
-    "complexity": [1, 10],
-    "max-len": [2, 160],
+    "complexity": [
+      1,
+      10
+    ],
+    "max-len": [
+      "error",
+      160
+    ],
+    "max-nested-callbacks": [
+      "error",
+      5
+    ],
     "no-var": 2,
-    "comma-dangle": [2, "never"],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
     "no-mixed-spaces-and-tabs": 2,
-    "quote-props": [2, "as-needed"],
-    "padded-blocks": 0,
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
     "require-jsdoc": 0,
     "generator-star-spacing": 0,
-    "babel/generator-star-spacing": 1,
+    "handle-callback-err": 2,
+    "prefer-const": 2,
+    "no-const-assign": 2,
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "arrow-parens": 0,
+    "padded-blocks": 0,
+    "no-invalid-this": 0,
+    "no-async-without-await/no-async-without-await": [
+      "error",
+      "allow-throw"
+    ],
+    "valid-jsdoc": 0,
+    "space-infix-ops": "error",
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
     "mocha/no-exclusive-tests": 2,
-    "handle-callback-err": 2
+    "node/no-unpublished-require": 0
   }
 }
