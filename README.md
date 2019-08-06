@@ -2,6 +2,10 @@
 
 Depcheck util that plays nice with ci
 
+## NOTE for v1.1.0+:
+
+Since version `v1.1.0` we only support node >= 8.
+
 ## Differences with depcheck
 
 - Also checks for non strict dependencies (configurable)
