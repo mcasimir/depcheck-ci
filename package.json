@@ -9,12 +9,10 @@
   "main": "src/Depcheck.js",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -Rf ./lib",
-    "build": "babel src -d lib",
     "release": "release-flow",
     "test:lint": "eslint . --quiet",
     "test:ci": "npm run test:lint && npm run depcheck",
-    "depcheck": "npm run build && node ./lib/cli.js"
+    "depcheck": "node ./lib/cli.js"
   },
   "bin": {
     "depcheck-ci": "./lib/cli.js"
